@@ -1,18 +1,22 @@
 package by.epam.onemusic.dao;
 
-import by.epam.onemusic.connector.ConnectionPool;
 import by.epam.onemusic.entity.Entity;
+import by.epam.onemusic.pool.ProxyConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public abstract class AbstractDAO<Key, T extends Entity> {
 
-    private Connection connection;
+    private static final Logger LOGGER = LogManager.getLogger();
 
-    public AbstractDAO(Connection connection) {
+    private ProxyConnection connection;
+
+    public AbstractDAO(ProxyConnection connection) {
         this.connection = connection;
     }
 
@@ -26,13 +30,8 @@ public abstract class AbstractDAO<Key, T extends Entity> {
 
     public abstract boolean create(T entity);
 
-    public abstract T update(T entity);
+    public abstract T update(T entity); //добавляется измененный а возвращается который изменили
 
-
-    // Возвращения экземпляра Connection в пул соединений
-    public void returnConnectionInPool() {
-        connectionPool.returnConnection(connection);
-    }
 
     // Получение экземпляра PrepareStatement
     public PreparedStatement getPrepareStatement(String sql) {
@@ -47,14 +46,26 @@ public abstract class AbstractDAO<Key, T extends Entity> {
     }
 
     // Закрытие PrepareStatement
-    public void closePrepareStatement(PreparedStatement ps) {
-        if (ps != null) {
+    public void close(Statement st) {
+        if (st != null) {
             try {
-                ps.close();
+                st.close();
             } catch (SQLException e) {
+                LOGGER.error("Can't close prepared statement");
+            }
+        }
+    }
+
+    public void close(ProxyConnection connection) {
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                LOGGER.error("Can't close connection");
                 e.printStackTrace();
             }
         }
+
     }
 
 }

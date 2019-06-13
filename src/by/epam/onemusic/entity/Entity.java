@@ -1,4 +1,4 @@
 package by.epam.onemusic.entity;
 
-public class Entity {
+public class Entity  {
 }
