@@ -1,6 +1,5 @@
 package by.epam.onemusic.pool;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -71,20 +70,21 @@ public class ConnectionPool {
         return instance;
     }
 
-    public Connection takeConnection() {
+    public ProxyConnection takeConnection() {
         ProxyConnection connection = null;
         try {
             connection = freeConnections.take();
             usedConnections.put(connection);
-            LOGGER.info("Connection was taken.");
+            int size = freeConnections.size();
+            LOGGER.info("Connection was taken. There are " + size + " free connections.");
         } catch (InterruptedException e) {
-            LOGGER.error("Connection leak.");
+            LOGGER.error("Connection was interrupted.");
             Thread.currentThread().interrupt();
         }
         return connection;
     }
 
-    public boolean releaseConnection(Connection connection) {
+    public void releaseConnection(Connection connection) {
         if (connection instanceof ProxyConnection) {
             ProxyConnection tmp = (ProxyConnection) connection;
             try {
@@ -93,41 +93,20 @@ public class ConnectionPool {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-                LOGGER.error("Error while setting autocommit");
+                LOGGER.error("Error while setting autocommit.");
             }
             usedConnections.remove(connection);
             freeConnections.offer(tmp);
             LOGGER.info("Connection was released.");
-            return true;
         } else {
-            return false;
+            LOGGER.info("Connection was not released.");
         }
     }
 
-    //2 метода
-
-    //удалит все коннекшн из одной очереди (avaliable connections) private method maybe в каких местах потом узнают вызывать
     public void closePool() throws InterruptedException, SQLException {
         for (int i = 0; i < dbPropertiesHandler.getDbPoolSize(); i++) {
             ProxyConnection connection = freeConnections.take();
             connection.realClose();
         }
     }
-
-//    void registerDrivers() {
-//    }
-//
-//    deregisterDriver через лямбду, закрыть драйвера нужно все, кажется что создается только один
-//    public void deregisterDrivers() {
-//        Enumeration<Driver> drivers = DriverManager.getDrivers();
-//        while (drivers.hasMoreElements()) {
-//            Driver driver = drivers.nextElement();
-//            try {
-//                DriverManager.deregisterDriver(driver);
-//            } catch (SQLException e) {
-//                //TODO LOG
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }

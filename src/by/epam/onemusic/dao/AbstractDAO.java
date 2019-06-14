@@ -5,9 +5,7 @@ import by.epam.onemusic.pool.ProxyConnection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 public abstract class AbstractDAO<Key, T extends Entity> {
@@ -15,6 +13,9 @@ public abstract class AbstractDAO<Key, T extends Entity> {
     private static final Logger LOGGER = LogManager.getLogger();
 
     private ProxyConnection connection;
+
+    public AbstractDAO() {
+    }
 
     public AbstractDAO(ProxyConnection connection) {
         this.connection = connection;
@@ -24,9 +25,9 @@ public abstract class AbstractDAO<Key, T extends Entity> {
 
     public abstract T findEntityById(Key id);
 
-    public abstract boolean delete(Key id);
+    public abstract boolean deleteByKey(Key id);
 
-    public abstract boolean delete(T entity);
+    public abstract boolean deleteByEntity(T entity);
 
     public abstract boolean create(T entity);
 
@@ -46,20 +47,32 @@ public abstract class AbstractDAO<Key, T extends Entity> {
     }
 
     // Закрытие PrepareStatement
-    public void close(Statement st) {
+    public static void closePrepareStatement(Statement st) {
         if (st != null) {
             try {
                 st.close();
             } catch (SQLException e) {
-                LOGGER.error("Can't close prepared statement");
+                LOGGER.error("Can't close prepared statement.");
             }
         }
     }
 
-    public void close(ProxyConnection connection) {
+    public static void closeResultSet(ResultSet resultSet) {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+                LOGGER.info("ResultSet was closed.");
+            } catch (SQLException e) {
+                LOGGER.error("Can't close result set.");
+            }
+        }
+    }
+
+    public  void closeConnection(ProxyConnection connection) {
         if (connection != null) {
             try {
                 connection.close();
+                LOGGER.info("Connection was returned to pool.");
             } catch (SQLException e) {
                 LOGGER.error("Can't close connection");
                 e.printStackTrace();

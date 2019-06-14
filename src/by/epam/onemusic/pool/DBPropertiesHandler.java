@@ -46,7 +46,7 @@ class DBPropertiesHandler {
         dbPoolSize = Integer.parseInt(properties.getProperty("jdbc.poolsize"));
         dbUseUnicode = Boolean.parseBoolean(properties.getProperty("jdbc.useUnicode"));
         dbEncoding = properties.getProperty("jdbc.encoding");
-        connectionString = "jdbc:mysql://" + dbName + ":"
+        connectionString = "jdbc:mysql://" + dbHost + ":"
                 + dbPort + "/" + dbName +
                 "?verifyServerCertificate=false" +
                 "&useSSL=false" +
