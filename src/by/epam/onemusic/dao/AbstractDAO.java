@@ -78,5 +78,41 @@ public abstract class AbstractDAO<Key, T extends Entity> {
 
     }
 
+    protected boolean setConnectionAutocommit(boolean value) {
+        try {
+            connection.setAutoCommit(value);
+            LOGGER.info("Autocommit was set to " + value);
+            return true;
+        } catch (SQLException e) {
+            LOGGER.info("Error while setting autocommit.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    protected boolean commitConnectionTransaction() {
+        try {
+            connection.commit();
+            LOGGER.info("Transaction was commited");
+            return true;
+        } catch (SQLException e) {
+            LOGGER.info("Error while commiting transaction.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    protected boolean rollbackConnectionTransaction() {
+        try {
+            connection.commit();
+            LOGGER.info("Transaction was rollbacked");
+            return true;
+        } catch (SQLException e) {
+            LOGGER.info("Error while rollbacking transaction.");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

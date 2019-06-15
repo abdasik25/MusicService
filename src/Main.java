@@ -1,5 +1,6 @@
 import by.epam.onemusic.dao.SongDAO;
 import by.epam.onemusic.dao.UserDAO;
+import by.epam.onemusic.entity.Author;
 import by.epam.onemusic.entity.Song;
 import by.epam.onemusic.entity.User;
 import by.epam.onemusic.pool.ConnectionPool;
@@ -42,6 +43,10 @@ public class Main {
         for (int i = 0; i < songs.size(); i++) {
             System.out.println(songs1.get(i));
         }
+        System.out.println("---------++++++-------");
+        Song song = new Song(3,"nothing else matters", 200, new BigDecimal("4.99"),1991,"metal",
+                new Author(1,"Metallica","USA"));
+        songDAO.addSongToAuthor(song);
         userDAO.closeConnection(сonnection1);
         userDAO.closeConnection(сonnection2);
         try {

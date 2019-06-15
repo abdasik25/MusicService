@@ -30,6 +30,7 @@ public class UserDAO extends AbstractDAO<Integer, User> {
     @Language("SQL")
     private static final String ADD_USER = "INSERT INTO user values (?,?,?,?,?,?,?)";
 
+
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
