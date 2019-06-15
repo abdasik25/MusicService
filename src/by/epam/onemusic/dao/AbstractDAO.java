@@ -27,12 +27,9 @@ public abstract class AbstractDAO<Key, T extends Entity> {
 
     public abstract boolean deleteByKey(Key id);
 
-    public abstract boolean deleteByEntity(T entity);
-
     public abstract boolean create(T entity);
 
-    public abstract T update(T entity); //добавляется измененный а возвращается который изменили
-
+    public abstract boolean update(T entity, Integer id); //добавляется измененный а возвращается который изменили
 
     // Получение экземпляра PrepareStatement
     public PreparedStatement getPrepareStatement(String sql) {
@@ -68,7 +65,7 @@ public abstract class AbstractDAO<Key, T extends Entity> {
         }
     }
 
-    public  void closeConnection(ProxyConnection connection) {
+    public void closeConnection(ProxyConnection connection) {
         if (connection != null) {
             try {
                 connection.close();
@@ -80,5 +77,6 @@ public abstract class AbstractDAO<Key, T extends Entity> {
         }
 
     }
+
 
 }

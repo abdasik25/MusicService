@@ -97,7 +97,8 @@ public class ConnectionPool {
             }
             usedConnections.remove(connection);
             freeConnections.offer(tmp);
-            LOGGER.info("Connection was released.");
+            int size = usedConnections.size();
+            LOGGER.info("Connection was released. Remaining " + size + " working connections.");
         } else {
             LOGGER.info("Connection was not released.");
         }

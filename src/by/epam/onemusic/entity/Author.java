@@ -2,6 +2,7 @@ package by.epam.onemusic.entity;
 
 import java.util.Objects;
 
+//TODO TOSTRING IN ENTITY
 public class Author extends Entity {
 
     private String name;
@@ -45,5 +46,13 @@ public class Author extends Entity {
     @Override
     public int hashCode() {
         return Objects.hash(name, country);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "name='" + name + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

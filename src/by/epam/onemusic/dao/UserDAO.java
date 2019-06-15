@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //TODO LOGS
-public class AdminDAO extends AbstractDAO<Integer, User> {
+//TODO Playlists + Songs ??? ??? ???
 
+public class UserDAO extends AbstractDAO<Integer, User> {
 
     @Language("SQL")
     private static final String SELECT_ALL_USERS = "SELECT id, username, password, name," +
@@ -23,12 +24,16 @@ public class AdminDAO extends AbstractDAO<Integer, User> {
     @Language("SQL")
     private static final String DELETE_USER_BY_ID = "DELETE FROM user WHERE user.id = ? AND user.is_admin != 1";
     @Language("SQL")
+    private static final String UUPDATE_USER_BY_ID = "UPDATE user SET id = ?, username = ?, " +
+            "password = ?, name = ?, surname = ?, is_admin = ?, " +
+            "balance = ? WHERE id = ? AND is_admin != 1";
+    @Language("SQL")
     private static final String ADD_USER = "INSERT INTO user values (?,?,?,?,?,?,?)";
 
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
-    public AdminDAO(ProxyConnection connection) {
+    public UserDAO(ProxyConnection connection) {
         super(connection);
     }
 
@@ -74,16 +79,10 @@ public class AdminDAO extends AbstractDAO<Integer, User> {
         preparedStatement = getPrepareStatement(DELETE_USER_BY_ID);
         try {
             preparedStatement.setString(1, Integer.toString(id));
-            int result = preparedStatement.executeUpdate();
-            return result == 1;
+            return executePreparedStatement(preparedStatement);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
-    }
-
-    @Override
-    public boolean deleteByEntity(User entity) {
         return false;
     }
 
@@ -91,15 +90,8 @@ public class AdminDAO extends AbstractDAO<Integer, User> {
     public boolean create(User entity) {
         preparedStatement = getPrepareStatement(ADD_USER);
         try {
-            preparedStatement.setString(1, Integer.toString(entity.getId()));
-            preparedStatement.setString(2, entity.getLogin());
-            preparedStatement.setString(3, entity.getPassword());
-            preparedStatement.setString(4, entity.getName());
-            preparedStatement.setString(5, entity.getSurname());
-            preparedStatement.setString(6, Integer.toString(entity.isAdmin()));
-            preparedStatement.setString(7, (entity.getBalance().toString()));
-            int result = preparedStatement.executeUpdate();
-            return result == 1;
+            setPreparedStatement(entity, preparedStatement);
+            return executePreparedStatement(preparedStatement);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -107,8 +99,16 @@ public class AdminDAO extends AbstractDAO<Integer, User> {
     }
 
     @Override
-    public User update(User entity) {
-        return null;
+    public boolean update(User entity, Integer id) {
+        preparedStatement = getPrepareStatement(UUPDATE_USER_BY_ID);
+        try {
+            setPreparedStatement(entity, preparedStatement);
+            preparedStatement.setString(8, Integer.toString(id));
+            return executePreparedStatement(preparedStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     private void initializeUser(User user, ResultSet resultSet) throws SQLException {
@@ -119,6 +119,21 @@ public class AdminDAO extends AbstractDAO<Integer, User> {
         user.setSurname(resultSet.getString(5));
         user.setAdmin(resultSet.getBoolean(6));
         user.setBalance(resultSet.getBigDecimal(7));
+    }
+
+    private void setPreparedStatement(User entity, PreparedStatement preparedStatement) throws SQLException {
+        preparedStatement.setString(1, Integer.toString(entity.getId()));
+        preparedStatement.setString(2, entity.getLogin());
+        preparedStatement.setString(3, entity.getPassword());
+        preparedStatement.setString(4, entity.getName());
+        preparedStatement.setString(5, entity.getSurname());
+        preparedStatement.setString(6, Integer.toString(entity.isAdmin()));
+        preparedStatement.setString(7, (entity.getBalance().toString()));
+    }
+
+    private boolean executePreparedStatement(PreparedStatement preparedStatement) throws SQLException {
+        int result = preparedStatement.executeUpdate();
+        return result == 1;
     }
 
 }

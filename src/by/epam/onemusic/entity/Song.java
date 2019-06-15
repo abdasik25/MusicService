@@ -13,7 +13,6 @@ public class Song extends Entity {
     private Author author;
 
     public Song() {
-
     }
 
     public Song(int id, String songName, long length, BigDecimal cost, int establishmentYear, String genre, Author author) {
