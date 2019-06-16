@@ -19,7 +19,7 @@ public class User extends Entity {
     public User() {
     }
 
-    public User(int id, String login, String password, String name, String surname,
+    public User(long id, String login, String password, String name, String surname,
                 boolean isAdmin, BigDecimal balance, List<Playlist> playlists, List<Song> songs) {
         super(id);
         this.login = login;

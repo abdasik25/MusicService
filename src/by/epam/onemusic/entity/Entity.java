@@ -4,20 +4,27 @@ import java.io.Serializable;
 
 public class Entity implements Serializable, Cloneable {
 
-    private int id;
+    private long id;
 
     public Entity() {
     }
 
-    public Entity(int id) {
+    public Entity(long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "id=" + id +
+                '}';
     }
 }

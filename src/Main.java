@@ -5,6 +5,8 @@ import by.epam.onemusic.entity.Song;
 import by.epam.onemusic.entity.User;
 import by.epam.onemusic.pool.ConnectionPool;
 import by.epam.onemusic.pool.ProxyConnection;
+import by.epam.onemusic.util.IdGenerator;
+import by.epam.onemusic.util.PasswordEncryption;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -15,9 +17,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        User alina = new User(3, "alina.akrami", "alina111", "alina", "akrami", false,
+        User alina = new User(3, "alina.akrami", PasswordEncryption.encryptPassword("alina111"), "alina", "akrami", false,
                 new BigDecimal(20), null, null);
-        User anzhelika = new User(4, "a.zavistovskaya", "zhika-zhizhika", "anzhelika", "zavistovskaya",
+        User anzhelika = new User(4, "a.zavistovskaya", PasswordEncryption.encryptPassword("zhika-zhizhika"), "anzhelika", "zavistovskaya",
                 false, new BigDecimal(30), null, null);
 
         ProxyConnection сonnection1 = ConnectionPool.getInstance().takeConnection();
@@ -33,7 +35,7 @@ public class Main {
             System.out.println(songs.get(i));
         }
         System.out.println(userDAO.create(alina));
-        System.out.println(userDAO.update(anzhelika, 3));
+        System.out.println(userDAO.create(anzhelika));
         System.out.println(userDAO.findEntityById(1));
         System.out.println(userDAO.deleteByKey(1));
         System.out.println("-----------------------");
@@ -44,9 +46,15 @@ public class Main {
             System.out.println(songs1.get(i));
         }
         System.out.println("---------++++++-------");
-        Song song = new Song(3,"nothing else matters", 200, new BigDecimal("4.99"),1991,"metal",
-                new Author(1,"Metallica","USA"));
+        long idAuthor = IdGenerator.generateIdAuthorID();
+        Song song = new Song(IdGenerator.generateSongId(),"nothing else matters", 200, new BigDecimal("4.99"),1991,"metal",
+                new Author(idAuthor,"Metallica","USA"));
         songDAO.addSongToAuthor(song);
+        Song song1 = new Song(IdGenerator.generateSongId(),"Turn the page", 200, new BigDecimal("3.99"),1997,"metal",
+                new Author(idAuthor,"Metallica","USA"));
+        songDAO.create(song);
+        songDAO.addSongToAuthor(song1);
+//        songDAO.deleteAuthorWithHisSongsById(1);
         userDAO.closeConnection(сonnection1);
         userDAO.closeConnection(сonnection2);
         try {

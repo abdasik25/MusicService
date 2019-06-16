@@ -15,7 +15,7 @@ public class Song extends Entity {
     public Song() {
     }
 
-    public Song(int id, String songName, long length, BigDecimal cost, int establishmentYear, String genre, Author author) {
+    public Song(long id, String songName, long length, BigDecimal cost, int establishmentYear, String genre, Author author) {
         super(id);
         this.songName = songName;
         this.length = length;

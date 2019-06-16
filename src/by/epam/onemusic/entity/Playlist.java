@@ -11,7 +11,7 @@ public class Playlist extends Entity {
     public Playlist(){
 
     }
-    public Playlist(int id, String name, List<Song> playlist) {
+    public Playlist(long id, String name, List<Song> playlist) {
         super(id);
         this.name = name;
         this.playlist = playlist;

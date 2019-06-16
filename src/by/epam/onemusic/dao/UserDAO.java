@@ -24,7 +24,7 @@ public class UserDAO extends AbstractDAO<Integer, User> {
     @Language("SQL")
     private static final String DELETE_USER_BY_ID = "DELETE FROM user WHERE user.id = ? AND user.is_admin != 1";
     @Language("SQL")
-    private static final String UUPDATE_USER_BY_ID = "UPDATE user SET id = ?, username = ?, " +
+    private static final String UPDATE_USER_BY_ID = "UPDATE user SET id = ?, username = ?, " +
             "password = ?, name = ?, surname = ?, is_admin = ?, " +
             "balance = ? WHERE id = ? AND is_admin != 1";
     @Language("SQL")
@@ -101,7 +101,7 @@ public class UserDAO extends AbstractDAO<Integer, User> {
 
     @Override
     public boolean update(User entity, Integer id) {
-        preparedStatement = getPrepareStatement(UUPDATE_USER_BY_ID);
+        preparedStatement = getPrepareStatement(UPDATE_USER_BY_ID);
         try {
             setPreparedStatement(entity, preparedStatement);
             preparedStatement.setString(8, Integer.toString(id));
@@ -123,7 +123,7 @@ public class UserDAO extends AbstractDAO<Integer, User> {
     }
 
     private void setPreparedStatement(User entity, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, Integer.toString(entity.getId()));
+        preparedStatement.setString(1, Long.toString(entity.getId()));
         preparedStatement.setString(2, entity.getLogin());
         preparedStatement.setString(3, entity.getPassword());
         preparedStatement.setString(4, entity.getName());

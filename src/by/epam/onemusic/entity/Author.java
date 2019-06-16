@@ -2,17 +2,15 @@ package by.epam.onemusic.entity;
 
 import java.util.Objects;
 
-//TODO TOSTRING IN ENTITY
 public class Author extends Entity {
 
     private String name;
     private String country;
 
     public Author(){
-
     }
 
-    public Author(int id, String name, String country) {
+    public Author(long id, String name, String country) {
         super(id);
         this.name = name;
         this.country = country;

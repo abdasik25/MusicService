@@ -42,15 +42,28 @@ public class SongDAO extends AbstractDAO<Integer, Song> {
     private static final String ADD_SONG_TO_AUTHOR = "INSERT INTO song VALUES (?,?,?,?,?,?,?)";
     @Language("SQL")
     private static final String DELETE_SONG_BY_ID = "DELETE FROM song WHERE song.id = ?";
+    @Language("SQL")
+    private static final String DELETE_ALL_AUTHOR_SONGS = "DELETE FROM song WHERE song.author_id = ?";
+    @Language("SQL")
+    private static final String DELETE_AUTHOR_WITH_SONGS_BY_ID = "DELETE FROM author WHERE author.id = ?";
+    @Language("SQL")
+    private static final String UPDATE_SONG_BY_AUTHOR_ID[] = {"UPDATE author set id = ?, name = ?, country = ? WHERE id = ?",
+            "UPDATE song SET id = ?, name = ?, length = ?, cost = ?, establishmentYear = ?, genre = ?, " +
+                    "author_id = ?"};
+    @Language("SQL")
+    private static final String UPDATE_SONG_BY_ID = "UPDATE song SET name = ?, length = ?, cost = ?," +
+            " establishmentYear = ?, genre = ? WHERE id = ?";
+
+
 
 
 //TODO ПО АЙДИ БУДЕТ СЛОЖНО ИСКАТЬ И НАХОДИТЬ ОБЫЧНОМУ ПОЛЬЗОВАТЕЛЮ, СДЕЛАТЬ ПО ЭНТИТИ???
 //add song +
 //delete song +
-//delete all author songs
-//delete author (with songs)
-//update author info by id
-//update song info by id
+//delete all author songs +
+//delete author (with songs) +
+//update author info by id +
+//update song info by id +
 
 
     public SongDAO() {
@@ -174,16 +187,39 @@ public class SongDAO extends AbstractDAO<Integer, Song> {
         return false;
     }
 
+    public boolean deleteAuthorWithHisSongsById(Integer id) {
+        preparedStatement = getPrepareStatement(DELETE_AUTHOR_WITH_SONGS_BY_ID);
+        try {
+            preparedStatement.setString(1, Integer.toString(id));
+            return executePreparedStatement(preparedStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean deleteAllAuthorSongs(Integer id) {
+        preparedStatement = getPrepareStatement(DELETE_ALL_AUTHOR_SONGS);
+        try {
+            preparedStatement.setString(1, Integer.toString(id));
+            return executePreparedStatement(preparedStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     @Override
     public boolean create(Song entity) {
         Author author = entity.getAuthor();
         try {
             super.setConnectionAutocommit(false);
-            for (String QUERY : ADD_SONG_WITH_AUTHOR) {
-                preparedStatement = getPrepareStatement(QUERY);
-                setAuthorPreparedStatement(author, preparedStatement);
-                executePreparedStatement(preparedStatement);
-            }
+            preparedStatement = getPrepareStatement(ADD_SONG_WITH_AUTHOR[0]);
+            setAuthorPreparedStatement(author, preparedStatement);
+            executePreparedStatement(preparedStatement);
+            preparedStatement = getPrepareStatement(ADD_SONG_WITH_AUTHOR[1]);
+            setSongPreparedStatement(entity,preparedStatement);
+            executePreparedStatement(preparedStatement);
             super.commitConnectionTransaction();
             return true;
         } catch (SQLException e) {
@@ -195,6 +231,7 @@ public class SongDAO extends AbstractDAO<Integer, Song> {
         }
         return false;
     }
+
 
     public boolean addSongToAuthor(Song entity) {
         try {
@@ -211,6 +248,25 @@ public class SongDAO extends AbstractDAO<Integer, Song> {
 
     @Override
     public boolean update(Song entity, Integer id) {
+        Author author = new Author();
+        try {
+            super.setConnectionAutocommit(false);
+            preparedStatement = getPrepareStatement(UPDATE_SONG_BY_AUTHOR_ID[0]);
+            setAuthorPreparedStatement(author, preparedStatement);
+            preparedStatement.setString(4, Integer.toString(id));
+            executePreparedStatement(preparedStatement);
+            preparedStatement = getPrepareStatement(UPDATE_SONG_BY_AUTHOR_ID[1]);
+            setSongPreparedStatement(entity,preparedStatement);
+            executePreparedStatement(preparedStatement);
+            super.commitConnectionTransaction();
+            return true;
+        } catch (SQLException e) {
+            // LOGGER.error("");
+            super.rollbackConnectionTransaction();
+            e.printStackTrace();
+        } finally {
+            super.setConnectionAutocommit(true);
+        }
         return false;
     }
 
@@ -237,25 +293,24 @@ public class SongDAO extends AbstractDAO<Integer, Song> {
     }
 
     private void setAuthorPreparedStatement(Author entity, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, Integer.toString(entity.getId()));
+        preparedStatement.setString(1, Long.toString(entity.getId()));
         preparedStatement.setString(2, entity.getName());
         preparedStatement.setString(3, entity.getCountry());
     }
 
     private void setSongPreparedStatement(Song entity, PreparedStatement preparedStatement) throws SQLException {
-        preparedStatement.setString(1, Integer.toString(entity.getId()));
+        preparedStatement.setString(1, Long.toString(entity.getId()));
         preparedStatement.setString(2, entity.getSongName());
         preparedStatement.setString(3, Long.toString(entity.getLength()));
         preparedStatement.setString(4, entity.getCost().toString());
         preparedStatement.setString(5, Integer.toString(entity.getEstablishmentYear()));
         preparedStatement.setString(6, entity.getGenre());
-        preparedStatement.setString(7, Integer.toString(entity.getAuthor().getId()));
+        preparedStatement.setString(7, Long.toString(entity.getAuthor().getId()));
     }
 
     private boolean executePreparedStatement(PreparedStatement preparedStatement) throws SQLException {
         int result = preparedStatement.executeUpdate();
         return result == 1;
     }
-
 
 }
