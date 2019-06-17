@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 13.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.entity;
 
 import java.io.Serializable;

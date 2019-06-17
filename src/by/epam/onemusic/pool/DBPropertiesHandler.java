@@ -1,9 +1,16 @@
+/**
+ * Created by Alexander Lomat on 13.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.pool;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.ReentrantLock;
 
 class DBPropertiesHandler {
 
@@ -18,8 +25,9 @@ class DBPropertiesHandler {
     private boolean dbUseUnicode;
     private static DBPropertiesHandler instance;
     private String connectionString;
-
     private Properties properties;
+    private static ReentrantLock reentrantLock = new ReentrantLock();
+    private static AtomicBoolean isCreated = new AtomicBoolean(false);
 
     private DBPropertiesHandler() {
         init();
@@ -57,8 +65,16 @@ class DBPropertiesHandler {
     }
 
     static DBPropertiesHandler getInstance() {
-        if (instance == null) {
-            instance = new DBPropertiesHandler();
+        if (!isCreated.get()) {
+            try {
+                reentrantLock.lock();
+                if (instance == null) {
+                    instance = new DBPropertiesHandler();
+                    isCreated.set(true);
+                }
+            } finally {
+                reentrantLock.unlock();
+            }
         }
         return instance;
     }

@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 14.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.pool;
 
 import java.sql.*;

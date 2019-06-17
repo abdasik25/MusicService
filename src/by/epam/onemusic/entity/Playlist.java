@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 13.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.entity;
 
 import java.util.List;
@@ -6,11 +11,20 @@ import java.util.Objects;
 public class Playlist extends Entity {
 
     private String name;
-    private List<Song> playlist;
+    private List<Song> playlist; //???
+
 
     public Playlist(){
-
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Playlist(long id, String name, List<Song> playlist) {
         super(id);
         this.name = name;
@@ -29,5 +43,13 @@ public class Playlist extends Entity {
     @Override
     public int hashCode() {
         return Objects.hash(name, playlist);
+    }
+
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "name='" + name + '\'' +
+                ", playlist=" + playlist +
+                '}';
     }
 }

@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 15.05.19
+ * version 0.0.3
+ */
+
 package by.epam.onemusic.pool;
 
 import org.apache.logging.log4j.LogManager;

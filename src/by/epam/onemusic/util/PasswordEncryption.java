@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 16.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.util;
 
 public class PasswordEncryption {
@@ -8,8 +13,7 @@ public class PasswordEncryption {
         return password.matches(patternPassword);
     }
 
-
-    private static String permatutations(String password, int[] key) {
+    private static String permutations(String password, int[] key) {
         int n = key.length;
         if (password.length() % n != 0) {
             for (int i = 0; i < password.length() % n; i++) {
@@ -56,7 +60,7 @@ public class PasswordEncryption {
     public static String encryptPassword(String password) {
         int[] keyPerm = new int[]{3, 1, 4, 2};
         int key = password.length() % 5 + 1;
-        password = permatutations(password, keyPerm);
+        password = permutations(password, keyPerm);
         StringBuilder passwordBuild = new StringBuilder(password);
         for (int i = 0; i < password.length(); i++) {
             passwordBuild.setCharAt(i, coding(password.charAt(i), key));

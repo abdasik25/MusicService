@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 13.05.19
+ * version 0.0.1
+ */
+
 package by.epam.onemusic.entity;
 
 import java.math.BigDecimal;
@@ -17,6 +22,15 @@ public class Song extends Entity {
 
     public Song(long id, String songName, long length, BigDecimal cost, int establishmentYear, String genre, Author author) {
         super(id);
+        this.songName = songName;
+        this.length = length;
+        this.cost = cost;
+        this.establishmentYear = establishmentYear;
+        this.genre = genre;
+        this.author = author;
+    }
+
+    public Song(String songName, long length, BigDecimal cost, int establishmentYear, String genre, Author author) {
         this.songName = songName;
         this.length = length;
         this.cost = cost;

@@ -1,3 +1,8 @@
+/**
+ * Created by Alexander Lomat on 13.05.19
+ * version 0.0.2
+ */
+
 package by.epam.onemusic.dao;
 
 import by.epam.onemusic.entity.Entity;
@@ -8,14 +13,12 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.List;
 
-public abstract class AbstractDAO<Key, T extends Entity> {
+public abstract class AbstractDAO<K, T extends Entity> {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
     private ProxyConnection connection;
 
-    public AbstractDAO() {
-    }
 
     public AbstractDAO(ProxyConnection connection) {
         this.connection = connection;
@@ -23,27 +26,26 @@ public abstract class AbstractDAO<Key, T extends Entity> {
 
     public abstract List<T> findAll();
 
-    public abstract T findEntityById(Key id);
+    public abstract T findByValue(K value);
 
-    public abstract boolean deleteByKey(Key id);
+    public abstract boolean deleteByKey(K key);
 
-    public abstract boolean create(T entity);
+    public abstract boolean addNew(T entity);
 
-    public abstract boolean update(T entity, Integer id); //добавляется измененный а возвращается который изменили
+    public abstract boolean update(T entity, K key);
 
-    // Получение экземпляра PrepareStatement
     public PreparedStatement getPrepareStatement(String sql) {
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sql);
         } catch (SQLException e) {
+            LOGGER.error("Can't get prepared statement.");
             e.printStackTrace();
         }
 
         return ps;
     }
 
-    // Закрытие PrepareStatement
     public static void closePrepareStatement(Statement st) {
         if (st != null) {
             try {
@@ -81,10 +83,10 @@ public abstract class AbstractDAO<Key, T extends Entity> {
     protected boolean setConnectionAutocommit(boolean value) {
         try {
             connection.setAutoCommit(value);
-            LOGGER.info("Autocommit was set to " + value);
+            LOGGER.info("Transaction autocommit status was set to " + value);
             return true;
         } catch (SQLException e) {
-            LOGGER.info("Error while setting autocommit.");
+            LOGGER.info("Error while setting autocommit. ");
             e.printStackTrace();
         }
         return false;
@@ -96,7 +98,7 @@ public abstract class AbstractDAO<Key, T extends Entity> {
             LOGGER.info("Transaction was commited");
             return true;
         } catch (SQLException e) {
-            LOGGER.info("Error while commiting transaction.");
+            LOGGER.info("Error while commiting transaction. ");
             e.printStackTrace();
         }
         return false;
@@ -105,13 +107,18 @@ public abstract class AbstractDAO<Key, T extends Entity> {
     protected boolean rollbackConnectionTransaction() {
         try {
             connection.commit();
-            LOGGER.info("Transaction was rollbacked");
+            LOGGER.info("Transaction was rollbacked. ");
             return true;
         } catch (SQLException e) {
             LOGGER.info("Error while rollbacking transaction.");
             e.printStackTrace();
         }
         return false;
+    }
+
+    protected boolean executePreparedStatement(PreparedStatement preparedStatement) throws SQLException {
+        int result = preparedStatement.executeUpdate();
+        return result == 1;
     }
 
 

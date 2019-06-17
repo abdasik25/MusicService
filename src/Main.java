@@ -24,6 +24,7 @@ public class Main {
 
         ProxyConnection сonnection1 = ConnectionPool.getInstance().takeConnection();
         ProxyConnection сonnection2 = ConnectionPool.getInstance().takeConnection();
+        ProxyConnection connection3 = ConnectionPool.getInstance().takeConnection();
         UserDAO userDAO = new UserDAO(сonnection1);
         List<User> userList = userDAO.findAll();
         for (int i = 0; i < userList.size(); i++) {
@@ -34,27 +35,30 @@ public class Main {
         for (int i = 0; i < songs.size(); i++) {
             System.out.println(songs.get(i));
         }
-        System.out.println(userDAO.create(alina));
-        System.out.println(userDAO.create(anzhelika));
-        System.out.println(userDAO.findEntityById(1));
-        System.out.println(userDAO.deleteByKey(1));
+        System.out.println(userDAO.addNew(alina));
+        System.out.println(userDAO.addNew(anzhelika));
         System.out.println("-----------------------");
-        System.out.println(songDAO.findAuthorBySongId(1));
+        System.out.println(songDAO.findAuthorBySongName("nothing else matters"));
         System.out.println("-----------------------");
-        List<Song> songs1 = songDAO.findAuthorSongsByAuthorId(1);
+        List<Song> songs1 = songDAO.findAuthorSongsByAuthorName("Metallica");
         for (int i = 0; i < songs.size(); i++) {
             System.out.println(songs1.get(i));
         }
         System.out.println("---------++++++-------");
-        long idAuthor = IdGenerator.generateIdAuthorID();
-        Song song = new Song(IdGenerator.generateSongId(),"nothing else matters", 200, new BigDecimal("4.99"),1991,"metal",
+        long idAuthor = IdGenerator.getInstance().generateIdAuthorID();
+        Song song = new Song(IdGenerator.getInstance().generateSongId(),"nothing else matters", 200, new BigDecimal("4.99"),1991,"metal",
                 new Author(idAuthor,"Metallica","USA"));
         songDAO.addSongToAuthor(song);
-        Song song1 = new Song(IdGenerator.generateSongId(),"Turn the page", 200, new BigDecimal("3.99"),1997,"metal",
+        Song song1 = new Song(IdGenerator.getInstance().generateSongId(),"Turn the page", 200, new BigDecimal("3.99"),1997,"metal",
                 new Author(idAuthor,"Metallica","USA"));
-        songDAO.create(song);
+        Song song2 = new Song("The unforgiven", 240, new BigDecimal("3.69"),1991,"metal",
+                new Author(idAuthor,"Metallica","USA"));
+        songDAO.addNew(song);
+//        songDAO.addNewNoID(song2);
         songDAO.addSongToAuthor(song1);
-//        songDAO.deleteAuthorWithHisSongsById(1);
+        songDAO.addSongToPlaylist("Best Metal Songs", "Turn the page");
+
+        System.out.println("---------//////////////-------");
         userDAO.closeConnection(сonnection1);
         userDAO.closeConnection(сonnection2);
         try {
