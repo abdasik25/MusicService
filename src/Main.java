@@ -20,6 +20,7 @@ public class Main {
                 new BigDecimal(20), null, null);
         User anzhelika = new User(4, "a.zavistovskaya", PasswordEncryption.encryptPassword("zhika-zhizhika"), "anzhelika", "zavistovskaya",
                 false, new BigDecimal(30), null, null);
+        //test
 
         ProxyConnection сonnection1 = ConnectionPool.getInstance().takeConnection();
         ProxyConnection сonnection2 = ConnectionPool.getInstance().takeConnection();
