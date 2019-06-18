@@ -1,0 +1,191 @@
+2019-06-18 12:27:19 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:27:19 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:27:19 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:27:19 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:27:19 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:28:16 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:28:16 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:28:16 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:28:16 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:28:16 ERROR by.epam.onemusic.pool.ConnectionPool:42 - Error while adding to connections pool
+java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost:3306/music?verifyServerCertificate=false&useSSL=false&requireSSL=false&useLegacyDatetimeCode=false&amp&serverTimezone=UTC
+	at java.sql.DriverManager.getConnection(DriverManager.java:702) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:228) ~[java.sql:?]
+	at by.epam.onemusic.pool.ConnectionPool.createConnection(ConnectionPool.java:55) ~[classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.init(ConnectionPool.java:40) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.<init>(ConnectionPool.java:30) [classes/:?]
+	at by.epam.onemusic.pool.ConnectionPool.getInstance(ConnectionPool.java:68) [classes/:?]
+	at Main.main(Main.java:25) [classes/:?]
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:70 - Connection pool was created.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 4 free connections.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 3 free connections.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 2 free connections.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:08 ERROR by.epam.onemusic.dao.UserDAO:107 - Error while adding new user 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '3' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.UserDAO.addNew(UserDAO.java:105) [classes/:?]
+	at Main.main(Main.java:38) [classes/:?]
+2019-06-18 12:31:08 ERROR by.epam.onemusic.dao.UserDAO:107 - Error while adding new user 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '4' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.UserDAO.addNew(UserDAO.java:105) [classes/:?]
+	at Main.main(Main.java:39) [classes/:?]
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 1 free connections.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.pool.ConnectionPool:107 - Connection was released. Remaining 3 working connections.
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:73 - Connection was returned to pool.
+2019-06-18 12:31:08 ERROR by.epam.onemusic.dao.SongDAO:372 - Error while adding song to author. 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '2-1' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.SongDAO.addSongToAuthor(SongDAO.java:369) [classes/:?]
+	at Main.main(Main.java:51) [classes/:?]
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:85 - Transaction autocommit status was set to false
+2019-06-18 12:31:08 ERROR by.epam.onemusic.dao.SongDAO:298 - Error while adding new song. 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.SongDAO.executeAuthorTransactionPart(SongDAO.java:419) ~[classes/:?]
+	at by.epam.onemusic.dao.SongDAO.addNew(SongDAO.java:293) [classes/:?]
+	at Main.main(Main.java:56) [classes/:?]
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:109 - Transaction was rollbacked. 
+2019-06-18 12:31:08 INFO  by.epam.onemusic.dao.AbstractDAO:85 - Transaction autocommit status was set to true
+2019-06-18 12:31:09 ERROR by.epam.onemusic.dao.SongDAO:372 - Error while adding song to author. 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'Turn the page' for key 'song_name_uindex'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.SongDAO.addSongToAuthor(SongDAO.java:369) [classes/:?]
+	at Main.main(Main.java:58) [classes/:?]
+2019-06-18 12:31:09 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 1 free connections.
+2019-06-18 12:31:09 INFO  by.epam.onemusic.pool.ConnectionPool:85 - Connection was taken. There are 0 free connections.
+2019-06-18 12:31:09 INFO  by.epam.onemusic.dao.AbstractDAO:62 - ResultSet was closed.
+2019-06-18 12:31:09 ERROR by.epam.onemusic.dao.SongDAO:394 - Error while adding song to playlist. 
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '1-2' for key 'PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1094) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1042) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1345) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1027) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at by.epam.onemusic.dao.AbstractDAO.executePreparedStatement(AbstractDAO.java:119) ~[classes/:?]
+	at by.epam.onemusic.dao.SongDAO.addSongToPlaylist(SongDAO.java:389) [classes/:?]
+	at Main.main(Main.java:59) [classes/:?]
+2019-06-18 12:31:09 INFO  by.epam.onemusic.pool.ConnectionPool:107 - Connection was released. Remaining 4 working connections.
+2019-06-18 12:31:09 INFO  by.epam.onemusic.dao.AbstractDAO:73 - Connection was returned to pool.
+2019-06-18 12:31:09 INFO  by.epam.onemusic.pool.ConnectionPool:107 - Connection was released. Remaining 3 working connections.
+2019-06-18 12:31:09 INFO  by.epam.onemusic.dao.AbstractDAO:73 - Connection was returned to pool.
