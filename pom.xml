@@ -21,7 +21,7 @@
 
     <properties>
         <jackson.version>2.7.4</jackson.version>
-        <log4j.version>2.11.2</log4j.version>
+        <log4j.version>2.13.3</log4j.version>
     </properties>
 
     <dependencies>
